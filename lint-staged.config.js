@@ -1,7 +1,7 @@
 // lint-staged.config.js
 module.exports = {
     // Type check TypeScript files
-    '**/*.(ts|tsx)': () => 'yarn tsc --noEmit',
+    '**/*.(ts|tsx)': () => 'npm run tsc --noEmit',
 
     // Lint then format TypeScript and JavaScript files
     '**/*.(ts|tsx|js)': (filenames) => [
@@ -12,4 +12,4 @@ module.exports = {
     // Format MarkDown and JSON
     '**/*.(md|json)': (filenames) =>
         `npm run prettier --write ${filenames.join(' ')}`,
-}
+};
