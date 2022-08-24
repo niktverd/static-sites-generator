@@ -17,7 +17,9 @@ const secret = process.env.NEXT_PUBLIC_SECRET;
 
 async function login(
     req: NextApiRequest,
-    res: NextApiResponse<DataBase & { data?: any }>
+    res: NextApiResponse<
+        DataBase & { data?: { login: string; password: string } }
+    >
 ) {
     const { login, password } = req.body;
 

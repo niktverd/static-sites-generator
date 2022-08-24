@@ -12,7 +12,7 @@ const Home: NextPage = () => {
         password: 'DdVp8t1pSU',
     });
 
-    const [error, setError] = useState<any>(null);
+    const [error, setError] = useState<string | unknown>(null);
     const router = useRouter();
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -49,30 +49,32 @@ const Home: NextPage = () => {
 
     return (
         <Page hideNavigation>
-            <form onSubmit={handleSubmit}>
-                <Field
-                    label="login"
-                    field={
-                        <input
-                            name="login"
-                            value={form.login}
-                            onChange={handleTextInput}
-                        />
-                    }
-                />
-                <Field
-                    label="password"
-                    field={
-                        <input
-                            name="password"
-                            value={form.password}
-                            onChange={handleTextInput}
-                        />
-                    }
-                />
-                <button onClick={handleLogin}>Login</button>
-            </form>
-            {error && <pre>{JSON.stringify(error, null, 5)}</pre>}
+            <>
+                <form onSubmit={handleSubmit}>
+                    <Field
+                        label="login"
+                        field={
+                            <input
+                                name="login"
+                                value={form.login}
+                                onChange={handleTextInput}
+                            />
+                        }
+                    />
+                    <Field
+                        label="password"
+                        field={
+                            <input
+                                name="password"
+                                value={form.password}
+                                onChange={handleTextInput}
+                            />
+                        }
+                    />
+                    <button onClick={handleLogin}>Login</button>
+                </form>
+                {error && <pre>{JSON.stringify(error, null, 5)}</pre>}
+            </>
         </Page>
     );
 };
