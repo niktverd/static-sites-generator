@@ -1,0 +1,49 @@
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 100%;
+}
+
+.label {
+    width: 100%;
+}
+
+.button {
+    min-width: 50%;
+    max-width: 90%;
+    min-height: 48px;
+    margin: 0 auto;
+    margin-bottom: 32px;
+    padding: 12px 24px;
+
+    cursor: pointer;
+
+    color: white;
+
+    border: none;
+    background-color: orangered;
+
+    font-size: 110%;
+    font-weight: 400;
+}
+
+input.input {
+    width: 100%;
+    margin: 0;
+}
+
+input.input:active {
+    border: none;
+}
+
+.item {
+    width: 100%;
+    margin-bottom: 32px;
+}
+
+.error {
+    border: 2px solid orangered;
+}
