@@ -10,7 +10,12 @@
     justify-content: center;
 
     min-height: 100vh;
-    padding: 4rem 0;
+    padding: 0 1rem 4rem 1rem;
+
+    max-width: 728px;
+    min-width: 400px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .footer {
@@ -22,6 +27,11 @@
     padding: 2rem 0;
 
     border-top: 1px solid #EAEAEA;
+}
+
+.redButton {
+    background-color: crimson;
+    color: white;
 }
 
 .footer a {

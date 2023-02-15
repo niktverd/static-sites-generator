@@ -4,6 +4,13 @@
 
     width: 100%;
     margin-bottom: 32px;
+
+    overflow: hidden;
+    border-radius: 16px;
+    padding: 16px;
+
+    background-color: var(--note-background);
+    color: var(--note-main-color);
 }
 
 .content {
@@ -12,7 +19,6 @@
     flex-direction: row;
 
     width: 100%;
-    min-height: 100px;
     gap: 16px;
 }
 
@@ -61,7 +67,8 @@
 }
 
 .title {
-    color: black;
+    color: var(--note-main-color);
+    margin-top: 0;
 }
 
 .subtitle {
@@ -70,6 +77,40 @@
     color: gray;
 
     font-size: 70%;
+}
+
+.block {
+    --note-main-color: rgb(46, 46, 46);
+    --note-background:  rgb(211, 211, 211);
+}
+
+.warning {
+    --note-main-color: rgb(141, 82, 4);
+    --note-background:  rgb(255, 224, 140);
+}
+
+.note {
+    --note-main-color: rgb(26, 37, 196);
+    --note-background:  rgb(186, 174, 255);
+}
+
+.error {
+    --note-main-color: rgb(160, 0, 0);
+    --note-background:  rgb(255, 209, 209);
+    
+}
+
+.success {
+    --note-main-color: rgb(0, 58, 10);
+    --note-background:  rgb(174, 255, 178);
+}
+
+.border {
+    border: 4px solid var(--note-main-color);
+}
+
+.buttonBlock {
+    margin-top: 16px;
 }
 
 @media (max-width: 968px) {
@@ -86,8 +127,5 @@
 
     .reverse {
         flex-direction: column-reverse;
-    }
-    .text {
-        font-size: 17px;
     }
 }

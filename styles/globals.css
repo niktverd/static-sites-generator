@@ -127,17 +127,11 @@ input[type='text'] {
     top: 0;
     left: 0;
 
-    display: none;
-
     width: 100vw;
     height: 100vh;
 
     opacity: 0.8;
     background-color: black;
-}
-
-.show-loader {
-    display: block;
 }
 
 .loader-container {

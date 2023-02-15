@@ -5,7 +5,14 @@ import styles from './Text.module.css';
 export enum TextBlockDirections {
     Straight = 'straight',
     Reverse = 'reverse',
-};
+}
+
+export enum TextBlockSizes {
+    Tiny = 'tiny',
+    Small = 'small',
+    Normal = 'normal',
+    Large = 'large',
+}
 
 type TextProps = {
     text: string;
@@ -13,7 +20,7 @@ type TextProps = {
     subtitle?: string;
     image?: string;
     direction?: TextBlockDirections;
-    size?: 'small' | 'normal' | 'large';
+    size?: TextBlockSizes;
 };
 
 export const Text = ({
@@ -22,7 +29,7 @@ export const Text = ({
     subtitle,
     image,
     direction = TextBlockDirections.Straight,
-    size = 'normal',
+    size = TextBlockSizes.Normal,
 }: TextProps) => {
     return (
         <div className={styles.container}>

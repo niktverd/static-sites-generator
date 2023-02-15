@@ -1,4 +1,5 @@
-import { monadvert } from 'configs/monadvert';
+import { Loader } from 'components/Loader';
+import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 
 import styles from './FormBase.module.css';
@@ -20,46 +21,66 @@ export const FormBase = ({
     buttonCaption,
     phoneMinLength = 7,
 }: FormBaseProps) => {
+    const [isFetching, setIsFetching] = useState(false);
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
     const [nameError, setNameError] = useState(false);
     const [phoneError, setPhoneError] = useState(false);
+
+    const router = useRouter();
 
     const onSubmitDefault = (e: any) => {
         e.preventDefault();
     };
 
     const onClickSubmit = async () => {
-        if (name.length < 1) {
-            return setNameError(true);
+        try {
+            setIsFetching(true);
+
+            if (name.length < 1) {
+                return setNameError(true);
+            }
+
+            if (phone.length < phoneMinLength) {
+                return setPhoneError(true);
+            }
+
+            fetch('report.php', {
+                method: 'POST',
+                body: JSON.stringify({
+                    aff_click_id: '{offer}',
+                    transaction_id: 777,
+                    name,
+                    phone,
+                }),
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            const response = await fetch('post.php', {
+                method: 'POST',
+                body: JSON.stringify({
+                    aff_click_id: '{offer}',
+                    transaction_id: 777,
+                    name,
+                    phone,
+                }),
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            if (response.status === 200) {
+                router.push('/thanks');
+            }
+        } catch (error) {
+            console.log(error);
+            setIsFetching(false);
         }
 
-        if (phone.length < phoneMinLength) {
-            return setPhoneError(true);
-        }
-
-        const offerId = 104;
-
-        const response = await fetch('post.php', {
-            method: 'POST',
-            body: JSON.stringify({
-                api_key: monadvert.apiKey,
-                offer_id: offerId,
-                goal_id: monadvert.offers[offerId].goalId,
-                payout: monadvert.offers[offerId].payout,
-                affiliate_id: monadvert.affiliateId,
-                aff_click_id: '{offer}',
-                transaction_id: 777,
-                firstname: name,
-                phone,
-            }),
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
-
-        const json = await response.json();
-        console.log(json);
+        console.log('go false');
+        setIsFetching(false);
     };
 
     const handePhoneInput = (e: any) => {
@@ -78,8 +99,10 @@ export const FormBase = ({
         setNameError(false);
     };
 
+    console.log(isFetching);
     return (
         <form className={styles.container} onSubmit={onSubmitDefault}>
+            {isFetching && <Loader />}
             <div className={styles.item}>
                 {nameLabel && <div className={styles.label}>{nameLabel}</div>}
                 <input
