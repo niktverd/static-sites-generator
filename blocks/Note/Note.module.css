@@ -1,16 +1,17 @@
 .container {
     display: flex;
+
+    overflow: hidden;
     flex-direction: column;
 
     width: 100%;
     margin-bottom: 32px;
-
-    overflow: hidden;
-    border-radius: 16px;
     padding: 16px;
 
-    background-color: var(--note-background);
     color: var(--note-main-color);
+    border-radius: 16px;
+
+    background-color: var(--note-background);
 }
 
 .content {
@@ -67,8 +68,9 @@
 }
 
 .title {
-    color: var(--note-main-color);
     margin-top: 0;
+
+    color: var(--note-main-color);
 }
 
 .subtitle {
@@ -80,29 +82,28 @@
 }
 
 .block {
-    --note-main-color: rgb(46, 46, 46);
-    --note-background:  rgb(211, 211, 211);
+    --note-main-color: rgb(46 46 46);
+    --note-background: rgb(211 211 211);
 }
 
 .warning {
-    --note-main-color: rgb(141, 82, 4);
-    --note-background:  rgb(255, 224, 140);
+    --note-main-color: rgb(141 82 4);
+    --note-background: rgb(255 224 140);
 }
 
 .note {
-    --note-main-color: rgb(26, 37, 196);
-    --note-background:  rgb(186, 174, 255);
+    --note-main-color: rgb(26 37 196);
+    --note-background: rgb(186 174 255);
 }
 
 .error {
-    --note-main-color: rgb(160, 0, 0);
-    --note-background:  rgb(255, 209, 209);
-    
+    --note-main-color: rgb(160 0 0);
+    --note-background: rgb(255 209 209);
 }
 
 .success {
-    --note-main-color: rgb(0, 58, 10);
-    --note-background:  rgb(174, 255, 178);
+    --note-main-color: rgb(0 58 10);
+    --note-background: rgb(174 255 178);
 }
 
 .border {

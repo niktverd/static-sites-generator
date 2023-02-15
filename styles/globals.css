@@ -3,8 +3,17 @@ body {
     margin: 0;
     padding: 0;
 
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-        Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Oxygen,
+        Ubuntu,
+        Cantarell,
+        "Fira Sans",
+        "Droid Sans",
+        "Helvetica Neue",
         sans-serif;
 }
 
@@ -17,7 +26,7 @@ a {
 * {
     box-sizing: border-box;
 
-    font-family: 'Microsoft YaHei', Arial, Helvetica, sans-serif !important;
+    font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif !important;
 }
 
 .username {
@@ -42,7 +51,7 @@ a {
 }
 
 .timer__list__item {
-    color: #f00 !important;
+    color: #F00 !important;
 }
 
 .order_block .priceс {
@@ -64,7 +73,7 @@ a {
 .price_box .new_price {
     margin-top: 10px;
 
-    color: #f00;
+    color: #F00;
 
     font-size: 30px;
 }
@@ -83,10 +92,10 @@ a {
     width: 30px;
     height: 30px;
 
-    content: '-50%';
+    content: "-50%";
     text-align: center;
 
-    color: #fff;
+    color: #FFF;
     border-radius: 50%;
     background: red;
 
@@ -94,7 +103,7 @@ a {
     line-height: 30px;
 }
 
-input[type='text'] {
+input[type="text"] {
     display: block;
 
     width: 80%;
@@ -166,10 +175,10 @@ input[type='text'] {
     height: 7px;
     margin: -4px 0 0 -4px;
 
-    content: ' ';
+    content: " ";
 
     border-radius: 50%;
-    background: #fff;
+    background: #FFF;
 }
 
 .lds-roller div:nth-child(1) {

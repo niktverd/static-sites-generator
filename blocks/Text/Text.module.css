@@ -87,6 +87,7 @@
     .reverse {
         flex-direction: column-reverse;
     }
+
     .text {
         font-size: 17px;
     }

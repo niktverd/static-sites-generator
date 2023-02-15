@@ -16,8 +16,8 @@ type NoteProps = {
     text: string;
     title?: string;
     subtitle?: string;
-    style?: NoteStyles,
-    border?: boolean,
+    style?: NoteStyles;
+    border?: boolean;
     caption?: string;
     url?: string;
 };
@@ -32,7 +32,11 @@ export const Note = ({
     border = false,
 }: NoteProps) => {
     return (
-        <div className={`${styles.container} ${styles[style]} ${border ? styles.border : ''}`}>
+        <div
+            className={`${styles.container} ${styles[style]} ${
+                border ? styles.border : ''
+            }`}
+        >
             {title && <h4 className={styles.title}>{title}</h4>}
             {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
             <div className={`${styles.content}`}>
@@ -40,9 +44,11 @@ export const Note = ({
                     <div>{text}</div>
                 </div>
             </div>
-            {(caption && url) &&<div className={styles.buttonBlock}>
-                <Button url={url}>{caption}</Button>
-            </div>}
+            {caption && url && (
+                <div className={styles.buttonBlock}>
+                    <Button url={url}>{caption}</Button>
+                </div>
+            )}
         </div>
     );
 };
