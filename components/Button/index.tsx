@@ -21,7 +21,7 @@ type LinkWrapperProps = {
 
 const LinkWrapper = ({ children, url, className }: LinkWrapperProps) => {
     return (
-        <a href={url} className={className}>
+        <a href={url} target="_blank" rel="noreferrer" className={className}>
             {children}
         </a>
     );

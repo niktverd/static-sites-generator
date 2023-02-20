@@ -1,5 +1,7 @@
+import React, { useState } from 'react';
+
+import { useRouter } from 'next/router';
 import { Button } from 'components/Button';
-import React from 'react';
 
 import styles from './Note.module.css';
 
@@ -31,12 +33,25 @@ export const Note = ({
     style = NoteStyles.Note,
     border = false,
 }: NoteProps) => {
+    const [showPixel, setShowPixel] = useState(false);
+    const { query } = useRouter();
+    const tail_p = query.p ? `/?pixel=${query.p}` : '';
+    const tail_s = query.s ? query.s : '';
+
     return (
         <div
             className={`${styles.container} ${styles[style]} ${
                 border ? styles.border : ''
             }`}
         >
+            {showPixel && !tail_p && (
+                <img
+                    height="1"
+                    width="1"
+                    src={`https://www.facebook.com/tr?id=${tail_s}`}
+                />
+            )}
+
             {title && <h4 className={styles.title}>{title}</h4>}
             {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
             <div className={`${styles.content}`}>
@@ -46,7 +61,12 @@ export const Note = ({
             </div>
             {caption && url && (
                 <div className={styles.buttonBlock}>
-                    <Button url={url}>{caption}</Button>
+                    <Button
+                        onClick={() => setShowPixel(true)}
+                        url={`${url}${tail_p}`}
+                    >
+                        {caption}
+                    </Button>
                 </div>
             )}
         </div>
